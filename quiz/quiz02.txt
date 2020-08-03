@@ -1,0 +1,78 @@
+.headers on
+
+--Name : Linh Nguyen
+--File: quiz02.sql
+--Date:July 09, 2020
+
+--1. How many seafood products do we have?
+select count(categoryid) as products from products where categoryid = 8;
+products
+12
+
+--2. What are the names and IDs of our seafood products?
+select productid, productname from products where categoryid = 8;
+ProductID|ProductName
+10|Ikura
+13|Konbu
+18|Carnarvon Tigers
+30|Nord-Ost Matjeshering
+36|Inlagd Sill
+37|Gravad lax
+40|Boston Crab Meat
+41|Jack's New England Clam Chowder
+45|Rogede sild
+46|Spegesild
+58|Escargots de Bourgogne
+73|Röd Kaviar
+
+--3. What is the average price of our seafood products?
+select AVG(unitprice) from products where categoryid = 8;
+AVG(unitprice)
+20.6825
+
+--4. What is our highest priced seafood product, and how much does it cost?
+select productid, productname, max(unitprice) from products where categoryid = 8;
+ProductID|ProductName|max(unitprice)
+18|Carnarvon Tigers|62.5
+
+--5. What is our lowest priced seafood product, and how much does it cost?
+select productid, productname, min(unitprice) from products where categoryid = 8;
+ProductID|ProductName|min(unitprice)
+13|Konbu|6.0
+
+--6. How many customers do we have in Denmark?
+select count(customerid)from customers where country in ('Denmark');
+count(customerid)
+2
+
+--7. What are the customer names and IDs of our Danish customers?
+select customerid, companyname, country from customers where country in ('Denmark');
+CustomerID|CompanyName|Country
+SIMOB|Simons bistro|Denmark
+VAFFE|Vaffeljernet|Denmark
+
+--8. Which customers do NOT have a fax number? This one is very tricky!
+select customerid, contactname, fax from customers where fax like "";
+CustomerID|ContactName|Fax
+ANTON|Antonio Moreno|
+BSBEV|Victoria Ashworth|
+CHOPS|Yang Wang|
+COMMI|Pedro Afonso|
+FAMIA|Aria Cruz|
+FOLKO|Maria Larsson|
+GODOS|José Pedro Freyre|
+GOURL|André Fonseca|
+GREAL|Howard Snyder|
+ISLAT|Helen Bennett|
+KOENE|Philip Cramer|
+LETSS|Jaime Yorres|
+MORGK|Alexander Feuer|
+PRINI|Isabel de Castro|
+QUEEN|Lúcia Carvalho|
+QUICK|Horst Kloss|
+RICAR|Janete Limeira|
+RICSU|Michael Holz|
+SAVEA|Jose Pavarotti|
+THEBI|Liz Nixon|
+TORTU|Miguel Angel Paolino|
+WELLI|Paula Parente|

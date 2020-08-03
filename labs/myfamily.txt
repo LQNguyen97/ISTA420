@@ -1,0 +1,52 @@
+.headers on
+
+--Name: myfamily.sql
+--Author: Linh Nguyen
+--Date: July 02, 2020
+
+drop table if exists family;
+
+create table family (
+  id int,
+  name text,
+  sex int,
+  role text,
+  age int
+  );
+  
+insert into family values (1,"Thanh",0,"parent",58);
+insert into family values (2,"Hoa",1,"child",28);
+insert into family values (3,"Huy",1,"child",27);
+insert into family values (4,"Duong",0,"child",25);
+insert into family values (5,"Linh",0,"child",22);
+  
+  
+  
+select * from family;
+id|name|sex|role|age
+1|Thanh|0|parent|58
+2|Hoa|1|child|28
+3|Huy|1|child|27
+4|Duong|0|child|25
+5|Linh|0|child|22
+select * from family where sex = 1;
+id|name|sex|role|age
+2|Hoa|1|child|28
+3|Huy|1|child|27
+select * from family where role like "parent";
+id|name|sex|role|age
+1|Thanh|0|parent|58
+select name from family;
+name
+Thanh
+Hoa
+Huy
+Duong
+Linh
+select avg(age) from family;
+avg(age)
+32.0
+select sum(age) from family;
+sum(age)
+160
+  
